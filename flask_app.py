@@ -7,7 +7,11 @@ import requests
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 import replicate
+import re
 from dotenv import load_dotenv # python-dotenv
+from metaphor_python import Metaphor
+
+metaphor = Metaphor("2e22c147-fe26-4934-8c1f-a82a834afafd")
 
 
 load_dotenv()
@@ -66,9 +70,30 @@ def sms():
             "ContentType":"audio/mpeg"
         }
     )
+    met = metaphor.search(
+        "ahsoka finale",
+        num_results=1,
+        use_autoprompt=True,
+        )
+    # Define a regular expression pattern to match URLs
+    url_pattern = r"https?://\S+"
+
+    # Use the findall function to extract all URLs from the input string
+    urls = re.findall(url_pattern, str(met))
+
+    # Check if any URLs were found
+    met_url = ''
+    if urls:
+        # Print the first URL found in the string
+        print("Metaphor URL:", urls[0])
+        met_url=urls[0]
+    else:
+        met_url = 0
+        print("No URL found in the input string.")
+    bod = "you'll get a phone call soon from Thrawn. Here is a relevant news link from Metaphor: " + met_url
     
     client.messages.create( 
-        body = "you'll get a phone call soon from Thrawn",
+        body = bod,
         to=user_num, #user input
         from_=os.environ.get('TWILIO_NUMBER')
     )
