@@ -10,6 +10,7 @@ Built with
 - hosted on [Heroku](https://www.heroku.com/) (thank you [Craig Dennis](https://twitter.com/craigsdennis) for helping me with that)
 - [Eleven Labs](https://elevenlabs.io/) to clone Thrawn's voice/train a model on Thrawn's voice
 - [Replicate](https://replicate.com/) for hosting/running LlaMA 2
+- [Metaphor](https://metaphor.systems/) for recommending relevant Ahsoka/Star Wars news
 
 
 <img height="400" width="380" alt="image" src="https://github.com/elizabethsiegle/sms-thrawn-voice/assets/8932430/ac0debac-1a30-4540-b34a-b7973bfd4203">
