@@ -11,7 +11,7 @@ import re
 from dotenv import load_dotenv # python-dotenv
 from metaphor_python import Metaphor
 
-metaphor = Metaphor("2e22c147-fe26-4934-8c1f-a82a834afafd")
+metaphor = Metaphor(os.environ.get("METAPHOR_API_KEY"))
 
 
 load_dotenv()
